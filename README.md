@@ -21,3 +21,10 @@ The trade-off: the library is strict. A pattern with zero named groups raises `I
 ## Awkward edge
 
 When a named group lives inside one branch of an alternation and that branch doesn't match, `re` reports the group as `None` (not `""`). The dict you get back preserves that distinction: `None` means "did not participate", `""` means "matched but captured nothing". Plan your consumers accordingly.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
