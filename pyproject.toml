@@ -1,6 +1,6 @@
 [project]
 name = "named-capture-extractor"
-version = "0.1.0"
+version = "0.1.1"
 description = "Runs a regex against text and returns a dictionary of named capture groups with their matches."
 requires-python = ">=3.10"
 dependencies = []
